@@ -1,0 +1,92 @@
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #E6E6FA, #F0F0F0); /* Light purple gradient background */
+    display: flex;
+    justify-content: space-evenly; /* Space between the logo and the form */
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    padding-left: 5%; /* Adjust this value to shift the elements proportionally */
+    padding-right: 5%; /* Ensures equal space on the right */
+}
+
+
+/* Company Logo Positioned to the Left */
+.company-logo {
+    position: relative; /* Change from absolute to relative to let flexbox handle positioning */
+    height: 100px;
+    width: auto;
+}
+
+/* Form Container Styling */
+/* Form Container Styling */
+.container {
+    background: white;
+    padding: 30px; /* Reduced padding to make the container smaller */
+    border-radius: 10px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    text-align: center;
+    width: 375px; /* Narrower form container for a more compact design */
+    margin-left: 0;
+}
+
+
+/* Title Styling */
+/* Title Styling */
+.upload-title {
+    font-weight: bold;
+    font-size: 20px; /* Smaller font for more compact title */
+    color: #4B0082; /* Dark purple color matching your theme */
+    text-transform: uppercase; /* Optional: Make text uppercase for a bold, clean look */
+    letter-spacing: 0.5px; /* Slight letter spacing for modern touch */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow to make it pop */
+    border-bottom: 1px solid #D8BFD8; /* Light purple bottom border for styling */
+    padding-bottom: 8px; /* Less padding between text and border */
+    margin-bottom: 15px; /* Reduced spacing below the title */
+}
+
+form {
+    margin: 0;
+}
+
+
+
+/* File Input Styling */
+input[type="file"] {
+    margin-bottom: 8px; /* Reduced margin for more compact spacing */
+    padding: 10px; /* Slightly reduced padding to shrink the size of the input */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #F3E5F5; /* Light purple background */
+    color: #333;
+    width: calc(100% - 20px); /* Adjusted width to fit smaller container */
+    cursor: pointer;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px; /* Reduced padding for a smaller button */
+    margin-top: 8px; /* Reduced top margin to bring it closer to the input field */
+    border: none;
+    border-radius: 5px;
+    background: #b156b1; /* Light purple button */
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px; /* Slightly smaller font size for the button */
+    width: 100%; /* Full width button */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+
+button:hover {
+    background-color: #C4A5C4; /* Slightly darker shade of purple on hover */
+}
+
+
+/* Output Area Hidden Initially */
+.output {
+    display: none; /* Keeps the output div hidden unless needed */
+}

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Invoice Template Generator</title>
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Joblogic Logo -->
+    <div>
+        <img src="{% static 'images/joblogic_logo_2.png' %}" alt="Joblogic Logo" class="company-logo">
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <h1 class="upload-title">Upload Invoice Image</h1>
+
+        <!-- Form Section -->
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Generate Invoice Template</button>
+        </form>
+        <div id="status" class="output"></div> <!-- Hidden output area -->
+    </div>
+
+    <!-- JavaScript for handling the form submission -->
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const formData = new FormData(this);
+            const statusDiv = document.getElementById('status');
+            let dotCount = 0;
+
+            statusDiv.style.display = 'block'; // Show the status message area
+            statusDiv.innerHTML = 'Generating Invoice Template'; // Initial status message
+
+            const dotAnimation = setInterval(() => {
+                statusDiv.innerHTML = 'Generating Template' + '.'.repeat(dotCount + 1);
+                dotCount = (dotCount + 1) % 4;
+            }, 500);
+
+            fetch(this.action, { method: 'POST', body: formData })
+                .then(response => {
+                    clearInterval(dotAnimation);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'invoice_template.html'; // Set download filename
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    statusDiv.innerHTML = 'Template file has been downloaded!';
+                })
+                .catch(error => {
+                    clearInterval(dotAnimation);
+                    statusDiv.innerHTML = 'Failed to process the image. Please try again.';
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
