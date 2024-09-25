@@ -83,33 +83,6 @@ python manage.py runserver
 ```
 Access the web app at http://127.0.0.1:8000/.
 
-
-## Folder Structure
-.
-├── jl_interface
-│   ├── document_template
-│   │   ├── migrations/
-│   │   ├── templates/
-│   │   ├── __init__.py
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── forms.py
-│   │   ├── image_processing.py
-│   │   ├── models.py
-│   │   ├── tests.py
-│   │   ├── urls.py
-│   │   └── views.py
-│   ├── static
-│   │   ├── css/
-│   │   ├── images/
-│   │   └── js/
-│   ├── .env
-│   ├── db.sqlite3
-│   ├── manage.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-
 ## Notes
 Ensure that the .env file is properly configured with the OpenAI API key.
 Static files (CSS, JS, and images) are already configured in settings.py.
