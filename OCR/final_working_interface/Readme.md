@@ -1,5 +1,8 @@
 # Invoice Processing Django Application
 
+<img width="1247" alt="image" src="https://github.com/user-attachments/assets/6bab2a1c-b668-4145-a9bd-d70b601b8cec">
+
+
 This is a Django application designed to convert an uploaded invoice image into an editable HTML invoice template using OCR and AI-based text extraction. The focus of this README is solely on the Django web interface, excluding the image processing aspect, which is covered in other parts of the repository.
 
 ## Features
