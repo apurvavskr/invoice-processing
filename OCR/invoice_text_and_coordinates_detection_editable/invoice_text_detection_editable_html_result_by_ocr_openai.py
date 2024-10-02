@@ -2,7 +2,7 @@ import pytesseract
 from PIL import Image
 import openai
 
-openai.api_key = 'sk-proj-pPDnILkYoGPa7y1EfZBMT3BlbkFJdI1HQqy_use_your_key'
+openai.api_key = 'use_your_key'
 
 def extract_text_and_layout(image_path):
     image = Image.open(image_path)
